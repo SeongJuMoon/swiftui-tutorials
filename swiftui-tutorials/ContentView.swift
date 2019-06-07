@@ -1,16 +1,24 @@
-//
-//  ContentView.swift
-//  swiftui-tutorials
-//
-//  Created by 문성주 on 07/06/2019.
-//  Copyright © 2019 seongju. All rights reserved.
-//
-
 import SwiftUI
 
 struct ContentView : View {
     var body: some View {
-        Text("Hello World")
+
+        HStack(alignment: .center) {
+            VStack(alignment: .leading) {
+                Text("Seongju moon")
+                    .font(.largeTitle)
+                Text("location: seongbukgu, Seoul Asia")
+                    .font(.caption)
+                Text("email: arcuer.dev@gmail.com")
+                    .font(.subheadline)
+                Text("tel: +82 10-****-****")
+                    .font(.caption)
+
+            }
+        }
+
+
+
     }
 }
 
