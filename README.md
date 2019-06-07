@@ -8,3 +8,7 @@
 
 ## 참고한 다른 부분 (references)
    - https://developer.apple.com/tutorials/swiftui/creating-and-combining-views
+
+## 화면 
+
+![screenshot](./img/simple-layout-usage.png)
