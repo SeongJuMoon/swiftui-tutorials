@@ -1,16 +1,43 @@
-//
-//  ContentView.swift
-//  swiftui-tutorials
-//
-//  Created by 문성주 on 07/06/2019.
-//  Copyright © 2019 seongju. All rights reserved.
-//
-
 import SwiftUI
 
 struct ContentView : View {
+
+    @State var isInvisable = false
+
     var body: some View {
-        Text("Hello World")
+
+        VStack {
+            Text("Learning Animation")
+                .font(.largeTitle)
+                .fontWeight(.semibold)
+                .color(.pink)
+                .padding(3)
+                .animation(.basic(duration: 0.3, curve: .easeOut))
+
+            Image("reva")
+                .frame(width: isInvisable ? 414 : 300, height: isInvisable ? 600 : 300)
+                .clipped()
+                .cornerRadius(isInvisable ? 0 : 30)
+                .blur(radius: isInvisable ? 0 : 30)
+                .animation(.spring())
+                .aspectRatio(contentMode: .fill)
+
+            Text("focus on UI")
+            .font(.subheadline)
+            .color(.gray)
+            .padding(4)
+            .animation(.basic(duration: 0.3, curve: .easeIn))
+
+            Button(action: {
+                withAnimation {
+                    self.isInvisable.toggle()
+                }
+            }) {
+                Text("Animate!")
+            }
+
+
+        }
     }
 }
 
