@@ -3,41 +3,18 @@ import SwiftUI
 struct ContentView : View {
 
     @State var isInvisable = false
+    var models = [
+        Place(id: "1", name: "a1", review: "c"),
+        Place(id: "2", name: "a2", review: "d"),
+        Place(id: "3", name: "a3", review: "c"),
+        Place(id: "4", name: "a4", review: "d"),
+        Place(id: "5", name: "a5", review: "c")
+    ]
 
     var body: some View {
+        SplitView(master: ListView(models: models), detail: DetailView(model: models[0]))
+        .edgesIgnoringSafeArea(.all)
 
-        VStack {
-            Text("Learning Animation")
-                .font(.largeTitle)
-                .fontWeight(.semibold)
-                .color(.pink)
-                .padding(3)
-                .animation(.basic(duration: 0.3, curve: .easeOut))
-
-            Image("reva")
-                .frame(width: isInvisable ? 414 : 300, height: isInvisable ? 600 : 300)
-                .clipped()
-                .cornerRadius(isInvisable ? 0 : 30)
-                .blur(radius: isInvisable ? 0 : 30)
-                .animation(.spring())
-                .aspectRatio(contentMode: .fill)
-
-            Text("focus on UI")
-            .font(.subheadline)
-            .color(.gray)
-            .padding(4)
-            .animation(.basic(duration: 0.3, curve: .easeIn))
-
-            Button(action: {
-                withAnimation {
-                    self.isInvisable.toggle()
-                }
-            }) {
-                Text("Animate!")
-            }
-
-
-        }
     }
 }
 
